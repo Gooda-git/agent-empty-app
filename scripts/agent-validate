@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "[agent-validate] validating agent harness"
+
+test -f AGENTS.md
+test -f ARCHITECTURE.md
+test -f docs/README.md
+test -f docs/product-specs/project-charter.md
+test -x scripts/agent-setup
+test -x scripts/agent-validate
+
+if [ -x "./scripts/project-validate" ]; then
+  ./scripts/project-validate
+else
+  echo "[agent-validate] no project-specific validation yet"
+fi
+
+echo "[agent-validate] ok"

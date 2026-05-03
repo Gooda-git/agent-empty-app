@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ -x "./scripts/project-launch" ]; then
+  ./scripts/project-launch
+else
+  echo "[agent-launch] no project-specific launch command yet"
+fi

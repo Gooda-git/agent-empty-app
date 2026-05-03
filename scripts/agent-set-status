@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+state="${1:?usage: agent-set-status <pending|success|failure|error> <sha> [context] [description] [target_url]}"
+sha="${2:?missing sha}"
+context="${3:-agent-review}"
+description="${4:-agent status updated}"
+target_url="${5:-}"
+
+repo="${GITHUB_REPOSITORY:-}"
+if [ -z "$repo" ]; then
+  repo="$(gh repo view --json nameWithOwner -q .nameWithOwner)"
+fi
+
+args=(
+  -X POST
+  "repos/${repo}/statuses/${sha}"
+  -f "state=${state}"
+  -f "context=${context}"
+  -f "description=${description}"
+)
+
+if [ -n "$target_url" ]; then
+  args+=(-f "target_url=${target_url}")
+fi
+
+gh api "${args[@]}" >/dev/null
+echo "[agent-set-status] ${context}=${state} for ${sha}"

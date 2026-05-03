@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "[agent-setup] base harness setup"
+
+if [ -x "./scripts/project-setup" ]; then
+  ./scripts/project-setup
+else
+  echo "[agent-setup] no project-specific setup yet"
+fi

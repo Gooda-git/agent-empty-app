@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "[project-setup] checking local runtime"
+
+if ! command -v node >/dev/null 2>&1; then
+  echo "[project-setup] Node.js 20 or newer is required" >&2
+  exit 1
+fi
+
+node_major="$(node -p "Number(process.versions.node.split('.')[0])")"
+if [ "$node_major" -lt 20 ]; then
+  echo "[project-setup] Node.js 20 or newer is required; found $(node --version)" >&2
+  exit 1
+fi
+
+if ! command -v python3 >/dev/null 2>&1; then
+  echo "[project-setup] python3 is required to launch the static dev server" >&2
+  exit 1
+fi
+
+echo "[project-setup] ok"

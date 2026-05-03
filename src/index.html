@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gooda Project Cockpit</title>
+    <meta
+      name="description"
+      content="A minimal runnable Gooda product scaffold for tracking the first agent-built project slice."
+    >
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <main class="shell" data-app-root>
+      <section class="workspace" aria-labelledby="page-title">
+        <div class="page-header">
+          <div>
+            <p class="eyebrow">Gooda scaffold</p>
+            <h1 id="page-title">Project cockpit</h1>
+          </div>
+          <p class="status-pill" data-ready-status>Ready to run</p>
+        </div>
+
+        <div class="layout">
+          <section class="panel focus-panel" aria-labelledby="focus-title">
+            <div class="section-heading">
+              <p class="eyebrow">Current focus</p>
+              <h2 id="focus-title">Bootstrap first runnable product scaffold</h2>
+            </div>
+            <p class="lede">
+              Track the first scaffold through product intent, command evidence,
+              and review readiness.
+            </p>
+            <dl class="metrics" aria-label="Project signals">
+              <div>
+                <dt>Stack</dt>
+                <dd>Static HTML, CSS, JavaScript</dd>
+              </div>
+              <div>
+                <dt>Runtime</dt>
+                <dd>No install required</dd>
+              </div>
+              <div>
+                <dt>Gate</dt>
+                <dd>Agent validation</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="panel checklist-panel" aria-labelledby="checklist-title">
+            <div class="section-heading">
+              <p class="eyebrow">Launch checklist</p>
+              <h2 id="checklist-title">First vertical slice</h2>
+            </div>
+            <ul class="task-list" data-task-list aria-live="polite"></ul>
+            <div class="progress">
+              <div class="progress-track" aria-hidden="true">
+                <span class="progress-bar" data-progress-bar></span>
+              </div>
+              <p data-progress-label>0 of 0 complete</p>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel command-panel" aria-labelledby="commands-title">
+          <div class="section-heading">
+            <p class="eyebrow">Agent commands</p>
+            <h2 id="commands-title">Repeatable workflow</h2>
+          </div>
+          <div class="commands" role="list">
+            <article role="listitem">
+              <span>Setup</span>
+              <code>./scripts/agent-setup</code>
+            </article>
+            <article role="listitem">
+              <span>Validate</span>
+              <code>./scripts/agent-validate</code>
+            </article>
+            <article role="listitem">
+              <span>Launch</span>
+              <code>./scripts/agent-launch</code>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "[project-validate] validating static product scaffold"
+
+test -f package.json
+test -f src/index.html
+test -f src/styles.css
+test -f src/app.js
+test -f tests/static-validate.mjs
+test -f docs/design-docs/0001-stack-selection.md
+
+npm run validate
+
+echo "[project-validate] ok"
